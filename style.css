@@ -173,7 +173,7 @@ p {
     height: 400px;
     object-fit: cover;
     border-radius: 8px;
-    opacity: 0;
+    opacity: 0.3;
     transition: opacity 1s ease-in-out;
     z-index: -1;
 }
@@ -184,8 +184,8 @@ p {
 }
 #resonance-img {
     top: 50%;
-    right: -15%;
-    transform: translate(-50%, -50%);
+    right: 15%;
+    transform: translate(50%, -50%);
 }
 
 
@@ -290,6 +290,21 @@ p {
     }
     .value-resonance-text {
         font-size: 2rem;
+        z-index: 1;
     }
-    .bg-image { display: none; } /* Hide complex background images on mobile for simplicity */
+    .bg-image {
+        width: 150px; /* Smaller width for mobile */
+        height: 200px; /* Smaller height for mobile */
+        top: 40%; /* Position from the vertical center */
+        transform: translateY(-50%); /* Move up by 70% of its own height */
+    }
+    #value-img {
+        left: 16%; /* Move further left */
+        transform: translate(-50%, -50%); /* Center horizontally and move up */
+    }
+    #resonance-img {
+        right: 16%; /* Move further right */
+        left: auto; /* Override desktop style */
+        transform: translate(50%, -50%); /* Center horizontally and move up */
+    }
 }

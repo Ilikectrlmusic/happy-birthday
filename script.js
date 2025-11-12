@@ -94,12 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 3. Show background images
             setTimeout(() => {
-                if (window.innerWidth > 768) { // Only show on desktop
-                    valueImg.classList.remove('hidden');
-                    resonanceImg.classList.remove('hidden');
-                    valueImg.style.opacity = '0.4';
-                    resonanceImg.style.opacity = '0.4';
-                }
+                valueImg.classList.remove('hidden');
+                resonanceImg.classList.remove('hidden');
+                valueImg.style.opacity = '0.3';
+                resonanceImg.style.opacity = '0.3';
             }, 2000);
 
             observer6.unobserve(section6); // Animate only once
