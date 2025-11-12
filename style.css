@@ -91,7 +91,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-size: 70%; /* Further reduced size */
+    background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
     background-image: var(--bg-image);
