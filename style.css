@@ -1,0 +1,295 @@
+/* General Body and Typography */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333;
+    overscroll-behavior-y: none; /* Prevents pull-to-refresh on mobile */
+}
+
+/* Entry Screen */
+#entry-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 100;
+    transition: opacity 1s ease-out;
+}
+
+.entry-title {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1.5rem;
+    color: #2c2c2c;
+}
+
+.name-input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    width: 250px;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background-color: transparent;
+}
+
+.name-input:focus {
+    outline: none;
+    border-bottom-color: #333;
+}
+
+/* Main Content */
+#main-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in;
+}
+
+.scroll-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    /* background-image is now controlled by ::before pseudo-element */
+}
+
+.scroll-section .content {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.scroll-section[data-bg-img] {
+    z-index: 0; /* Needed for z-index stacking of pseudo-elements */
+}
+
+/* ::before is now the background image with a fade-in effect */
+.scroll-section[data-bg-img]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 70%; /* Further reduced size */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--bg-image);
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: -2;
+}
+
+.scroll-section.bg-visible::before {
+    opacity: 1;
+}
+
+/* ::after is now the white overlay */
+.scroll-section[data-bg-img]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6); /* White overlay to lighten the background */
+    z-index: -1;
+}
+
+
+/* Section-specific styles */
+#section-1 .portrait-img {
+    width: 350px;
+    height: 350px; 
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3); /* More prominent shadow */
+}
+
+h2 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Section 6: Value & Resonance */
+.value-resonance-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Provide height for absolute positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.value-resonance-text {
+    position: absolute;
+    font-size: 3.5rem;
+    font-weight: 400;
+    transition: all 1s ease-in-out;
+}
+#value-text {
+    left: 50%;
+    transform: translateX(-50%);
+}
+#and-text {
+    font-size: 3rem;
+    font-style: italic;
+    color: #888;
+}
+#resonance-text {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.bg-image {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+}
+#value-img {
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+#resonance-img {
+    top: 50%;
+    right: -15%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Section 7: Scrolling Gallery */
+.scrolling-gallery {
+    display: flex;
+    width: 200%; /* Twice the container width to accommodate two sets of images */
+    animation: scroll-left 30s linear infinite;
+    margin-bottom: 2rem;
+}
+.scrolling-gallery img {
+    width: 400px; /* Enlarged */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 10px; /* Removed 50% for original ratio, added slight radius */
+    margin: 0 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move left by the width of one set of images */
+}
+
+/* Section 8: Cake */
+#whatever-text, #birthday-title {
+    transition: opacity 1s ease-out;
+}
+#cake-img {
+    max-width: 90%;
+    max-height: 75vh;
+    border-radius: 8px;
+}
+
+/* Confetti Animation */
+#confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    opacity: 0;
+    animation: confetti-fall 5s linear forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* Animation & Visibility */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.5rem;
+    }
+    .entry-title {
+        font-size: 2rem;
+    }
+    .name-input {
+        width: 200px;
+        font-size: 1.2rem;
+    }
+    #section-1 .portrait-img {
+        width: 220px;
+        height: 220px;
+    }
+    .scrolling-gallery img {
+        width: 250px; /* Adjusted for mobile */
+    }
+    .value-resonance-text {
+        font-size: 2rem;
+    }
+    .bg-image { display: none; } /* Hide complex background images on mobile for simplicity */
+}

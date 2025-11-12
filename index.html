@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="entry-screen">
+        <h1 class="entry-title">君の名は</h1>
+        <input type="text" id="name-input" class="name-input" autofocus>
+    </div>
+
+    <main id="main-content">
+        <section class="scroll-section" id="section-1">
+            <div class="content">
+                <img src="assests/portrait.jpg" alt="Portrait" class="portrait-img">
+                <h2 class="animate-on-scroll">转瞬一念，又是一年</h2>
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-2">
+            <div class="content">
+                <h2 class="animate-on-scroll">我们生命重叠的这几年......</h2>
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-3" data-bg-img="assests/1.jpg">
+            <div class="content">
+                <h2 class="animate-on-scroll">给予生命</h2>
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-4" data-bg-img="assests/2.png">
+            <div class="content">
+                <h2 class="animate-on-scroll">细心抚养</h2>
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-5" data-bg-img="assests/3.jpg">
+            <div class="content">
+                <h2 class="animate-on-scroll">共赴难关</h2>
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-6">
+            <div class="content">
+                <div class="value-resonance-container">
+                    <div id="value-text" class="value-resonance-text animate-on-scroll">价值指引</div>
+                    <div id="and-text" class="value-resonance-text hidden">and</div>
+                    <div id="resonance-text" class="value-resonance-text hidden">共鸣</div>
+                </div>
+                <img src="assests/value-1.jpg" class="bg-image hidden" id="value-img">
+                <img src="assests/value-2.JPG" class="bg-image hidden" id="resonance-img">
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-7">
+            <div class="content">
+                <div class="scrolling-gallery">
+                    <img src="assests/circle-1.jpg" alt="Memory 1">
+                    <img src="assests/circle-2.jpg" alt="Memory 2">
+                    <img src="assests/circle-3.jpg" alt="Memory 3">
+                    <img src="assests/circle-1.jpg" alt="Memory 1">
+                    <img src="assests/circle-2.jpg" alt="Memory 2">
+                    <img src="assests/circle-3.jpg" alt="Memory 3">
+                </div>
+                <p class="animate-on-scroll">这是回忆，但大部分都是再普通不过的日常</p>
+                <p class="animate-on-scroll">平淡中有感情</p>
+            </div>
+        </section>
+
+        <section class="scroll-section" id="section-8">
+            <div class="content">
+                <h2 id="whatever-text" class="animate-on-scroll">whatever...</h2>
+                <div id="cake-container" class="hidden">
+                    <h2 id="birthday-title" class="hidden animate-on-scroll">妈妈，生日快乐！</h2>
+                    <img src="assests/cake.jpg" alt="Birthday Cake" id="cake-img" class="hidden animate-on-scroll">
+                    <div id="confetti-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <audio id="canon-audio" src="assests/Canon in D.mp3" loop></audio>
+    <audio id="hbd-audio" src="assests/happy birthday to you.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
